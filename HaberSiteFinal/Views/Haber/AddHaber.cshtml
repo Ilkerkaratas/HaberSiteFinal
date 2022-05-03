@@ -1,0 +1,26 @@
+﻿@using HaberSiteFinal.Models
+@model HaberSiteFinal.Models.HaberEkle
+@{
+    ViewData["Title"] = "AddHaber";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Haber Ekleme Sayfası</h1>
+<br />
+<form class="form-group" asp-action="AddHaber" asp-controller="Haber" method="post" enctype="multipart/form-data">
+    @Html.Label(" Haber Adı")
+    @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+    <br />
+  
+    @Html.Label("Resim Seçin")
+    <input type="file" name="ImageURL" />
+    <br />
+    @Html.Label("Kategori")
+    @Html.DropDownListFor(x => x.CategoryID, (List<SelectListItem>)ViewBag.v1, new { @class = "form-control" })
+    <br />
+
+    @Html.Label("Açıklama")
+    @Html.TextAreaFor(x => x.Description, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-primary">Kaydet</button>
+</form>

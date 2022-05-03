@@ -1,0 +1,36 @@
+﻿
+@using X.PagedList;
+@using X.PagedList.Mvc.Core;
+@model IPagedList<HaberSiteFinal.Models.Haber>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Habe List</h2>
+<br />
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>Haber Name</th>      
+        <th>Category Name</th>
+        <th>Delete</th>
+        <th>Update</th>
+       
+
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <th>@x.HaberID</th>
+            <td>@x.HaberName</td>            
+            <td>@x.Category.CategoryName</td>
+            <td><a href="/Haber/DeleteHaber/@x.HaberID" class="btn btn-danger">Delate</a></td>
+            <td><a href="/Haber/HaberGet/@x.HaberID" class="btn btn-success">Update</a></td>
+            
+        </tr>
+    }
+
+</table>
+@Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }))
+<a href="/Haber/AddHaber/" class="btn btn-primary">New Haber</a>

@@ -1,0 +1,28 @@
+﻿@model IEnumerable<HaberSiteFinal.Models.Haber>
+
+<div class="agile_top_brands_grids">
+    @foreach (var item in Model)
+    {
+
+        
+        <div class="col-md-3 top_brand_left" style="margin-bottom:50px">
+            <div class="hover14 column">
+                <div class="agile_top_brand_left_grid">
+
+                    <div class="agile_top_brand_left_grid1">
+                        <figure>
+                            <div class="snipcart-item block">
+                                <div class="snipcart-thumb">
+                                    <a href=""><img style="width:250px;height:200px" title=" " alt=" " src="/Resimler/@item.ImageURL" /></a>
+                                    <p>@item.HaberName</p>
+                                    <h4 style=" max-block-size: 105px">@item.Description</h4>
+                                </div>
+                            </div>
+                        </figure>
+                    </div>
+                </div>
+            </div>
+        </div>}
+
+    <div class="clearfix"> </div>
+</div>
